@@ -4,10 +4,13 @@ const fetch = require("node-fetch");
 require('dotenv').config();
 const OWM_API_KEY = process.env.OWM_API_KEY || 'invalid_key';
 const UNITS = process.env.UNITS || 'metric';
+//const ENV = JSON.stringify(process.env);
+const ENV = process.env;
+const AUTHOR = process.env.AUTHOR;
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { weather: null, err: null });
+  res.render('index', { weather: null, err: null, env: ENV });
 });
 
 router.post('/get_weather', async function (req,res) {
